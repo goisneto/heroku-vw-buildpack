@@ -27,7 +27,8 @@ mv "$VENDOR_DIR/boost_1_56_0" "$VENDOR_DIR/boost"
 # FYI we do this and set the export path explicitly because we cannot assume all buildpacks copy this dir over
 # We need to also leave the vendor dir repo in place, as the current app vendor gets blown away and replaced with
 # what is in the build dir
-mkdir "/app/vendor/boost"
+
+mkdir -p "/app/vendor/boost"
 cp -R "$VENDOR_DIR/boost" "/app/vendor/boost"
 
 set-default-env LD_LIBRARY_PATH "boost/stage/lib"
